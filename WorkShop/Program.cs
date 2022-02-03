@@ -6,7 +6,13 @@ namespace WorkShop
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("TicTacToe Game!!!");
+            var app = new TicTacToe();
+            int count = 0;
+            foreach (var item in app.GameUCOne())
+            {
+                Console.WriteLine($"position: {count}, value :{item}");
+                count++;
+            } 
         }
     }
 }
