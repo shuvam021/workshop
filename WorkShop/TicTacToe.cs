@@ -6,16 +6,14 @@ namespace WorkShop
     {
         private char _computerOption;
         private char _playerOption;
-        // private char[] _option = new char[10];
-        private char[] _option = { ' ', 'x', 'o', 'x', 'o', 'o', 'x', 'x', 'x', 'x'};
+        private char[] _option = new char[10];
         
         public char[] Game()
         {
             for (int i = 0; i < 10; i++)
             {
-                if (i == 0)
-                    continue;
-                _option[i] = ' ';
+                if (i == 0) continue;
+                else _option[i] = ' ';
             }
             return _option;
         }
