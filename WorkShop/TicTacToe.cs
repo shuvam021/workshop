@@ -4,64 +4,49 @@ namespace WorkShop
 {
     public class TicTacToe
     {
-        private char _computerOption = 'x';
+        private char _computerOption;
         private char _playerOption;
+        // private char[] _option = new char[10];
+        private char[] _option = { ' ', 'x', 'o', 'x', 'o', 'o', 'x', 'x', 'x', 'x'};
         
-        private int _computerPosition = 1;
-        private int _playerPosition = 0;
-        
-        private char[] _option = new char[10];
-        
-        public char[] GameUCOne()
+        public char[] Game()
         {
-            char[] option = new char[10];
-            Random random = new Random();
             for (int i = 0; i < 10; i++)
             {
                 if (i == 0)
                     continue;
-                else
-                    option[i] = random.Next(0, 2) == 0?'x':'o';
-            }
-            return option;
-        }
-
-        public char[] GameUCTwo()
-        {
-            Random random = new Random();
-            Console.Write("Type 'X' or 'O' to choose your option:" );
-            if (Console.ReadLine().ToLower() == "x")
-            {
-                this._computerOption = 'o';
-                this._playerOption = 'x';
-            }
-            else
-            {
-                this._playerOption = 'o';
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                int choice = random.Next(0, 2);
-                if (i == 0)
-                    continue;
-                else
-                {
-                    if ( choice == this._computerPosition)
-                        this._option[i] = this._computerOption;
-                    if (choice == this._playerPosition)
-                        this._option[i] = this._playerOption;
-                }
+                _option[i] = ' ';
             }
             return _option;
         }
-
-        public void ShowBoard(char[] options)
+        public void GetChoice()
         {
-            // uc-3
-            Console.WriteLine($"{options[1]} | {options[2]} | {options[3]} \n" +
-                              $"{options[4]} | {options[5]} | {options[6]} \n" +
-                              $"{options[7]} | {options[8]} | {options[9]} \n");
+            Console.Write("Choose a Option [X]/[O] :" );
+            if (Console.ReadLine().ToLower() == "x")
+            {
+                this._computerOption = 'O';
+                this._playerOption = 'X';
+            }
+            else
+            {
+                this._computerOption = 'x';
+                this._playerOption = 'o';
+            }
+
+            Console.WriteLine($">> player: {this._playerOption}, computer: {this._computerOption}");
+        }
+
+        public void ShowBoard()
+        {
+            Console.WriteLine("     |     |      ");
+            Console.WriteLine($"  {this._option[1]}  |  {this._option[2]}  |  {this._option[3]}");
+            Console.WriteLine("_____|_____|_____ ");
+            Console.WriteLine("     |     |      ");
+            Console.WriteLine($"  {this._option[4]}  |  {this._option[5]}  |  {this._option[6]}");
+            Console.WriteLine("_____|_____|_____ ");
+            Console.WriteLine("     |     |      ");
+            Console.WriteLine($"  {this._option[7]}  |  {this._option[8]}  |  {this._option[9]}");
+            Console.WriteLine("     |     |      ");
         }
     }
 }
