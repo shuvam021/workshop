@@ -55,5 +55,13 @@ namespace WorkShop
             }
             return _option;
         }
+
+        public void ShowBoard(char[] options)
+        {
+            // uc-3
+            Console.WriteLine($"{options[1]} | {options[2]} | {options[3]} \n" +
+                              $"{options[4]} | {options[5]} | {options[6]} \n" +
+                              $"{options[7]} | {options[8]} | {options[9]} \n");
+        }
     }
 }

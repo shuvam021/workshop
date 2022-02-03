@@ -4,7 +4,7 @@ namespace WorkShop
 {
     class Program
     {
-        public void OutputUC1()
+        public static void OutputUC1()
         {
             var app = new TicTacToe();
             int count = 0;
@@ -14,7 +14,7 @@ namespace WorkShop
                 count++;
             }
         }
-        public void OutputUC2()
+        public static void OutputUC2()
         {
             var app = new TicTacToe();
             int count = 0;
@@ -24,11 +24,17 @@ namespace WorkShop
                 count++;
             }
         }
+        public static void OutputUC3()
+        {
+            var app = new TicTacToe();
+            app.ShowBoard(app.GameUCTwo());
+        }
+        
         static void Main(string[] args)
         {
-            var app = new Program();
-            // app.OutputUC1(); // uc1
-            app.OutputUC2(); // uc2
+            // OutputUC1(); // uc1
+            // OutputUC2(); // uc2
+            OutputUC3(); // uc3
         }
     }
 }
