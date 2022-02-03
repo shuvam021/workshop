@@ -4,10 +4,9 @@ namespace WorkShop
 {
     public class TicTacToe
     {
-        private char _computerOption;
-        private char _playerOption;
         private char[] _option = new char[10];
-        
+        public char ComputerOption { get; set; } = 'X';
+        public char PlayerOption { get; set; } = 'O';
         public char[] Game()
         {
             for (int i = 0; i < 10; i++)
@@ -20,18 +19,12 @@ namespace WorkShop
         public void GetChoice()
         {
             Console.Write("Choose a Option [X]/[O] :" );
-            if (Console.ReadLine().ToLower() == "x")
-            {
-                this._computerOption = 'O';
-                this._playerOption = 'X';
-            }
-            else
-            {
-                this._computerOption = 'x';
-                this._playerOption = 'o';
-            }
-
-            Console.WriteLine($">> player: {this._playerOption}, computer: {this._computerOption}");
+            var option = Console.ReadLine();
+            if(option == null)
+                throw new NullReferenceException();
+            if (option.ToUpper() != "X") return;
+            this.ComputerOption = 'O';
+            this.PlayerOption = 'X';
         }
 
         public void ShowBoard()
